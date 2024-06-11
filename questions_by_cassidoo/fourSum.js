@@ -7,26 +7,26 @@ function fourSum(arr, target) {
     for (let j = i + 1; j < newArr.length - 2; ++j) {
       if (j > i + 1 && newArr[j] === newArr[j - 1]) continue;
 
-      let left = j + 1;
-      let right = newArr.length - 1;
+      let k = j + 1;
+      let l = newArr.length - 1;
 
-      while (left < right) {
-        const sum = newArr[i] + newArr[j] + newArr[left] + newArr[right];
+      while (k < l) {
+        const sum = newArr[i] + newArr[j] + newArr[k] + newArr[l];
 
         if (sum === target) {
-          result.push([newArr[i], newArr[j], newArr[left], newArr[right]]);
+          result.push([newArr[i], newArr[j], newArr[k], newArr[l]]);
 
           // Skip the duplicates
-          while (left < right && newArr[left] === newArr[left + 1]) left++;
-          left++;
+          while (k < l && newArr[k] === newArr[k + 1]) k++;
+          k++;
 
           // Skip the duplicates
-          while (left < right && newArr[right] === newArr[right - 1]) right--;
-          right--;
+          while (k < l && newArr[l] === newArr[l - 1]) l--;
+          l--;
         } else if (sum < target) {
-          left++;
+          k++;
         } else {
-          right--;
+          l--;
         }
       }
     }
