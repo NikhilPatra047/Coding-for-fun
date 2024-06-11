@@ -1,3 +1,6 @@
+// Time complexity - O(n ^ 3);
+// Space complexity - O(k)
+
 function fourSum(arr, target) {
   const newArr = [...arr].sort((a, b) => a - b);
   const result = [];
